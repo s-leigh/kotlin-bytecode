@@ -1,0 +1,80 @@
+// ================TailrecKt.class =================
+// class version 50.0 (50)
+// access flags 0x31
+public final class TailrecKt {
+
+
+  // access flags 0x19
+  public final static sumOfInts(II)I
+   L0
+    LINENUMBER 2 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 3 L2
+    ILOAD 1
+    ILOAD 0
+    IADD
+   L3
+    GOTO L4
+   L1
+    LINENUMBER 5 L1
+    ILOAD 0
+    ICONST_1
+    ISUB
+    ILOAD 0
+    ILOAD 1
+    IADD
+    INVOKESTATIC TailrecKt.sumOfInts (II)I
+   L5
+    LINENUMBER 2 L5
+   L4
+    IRETURN
+   L6
+    LOCALVARIABLE limit I L0 L6 0
+    LOCALVARIABLE runningTotal I L0 L6 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x19
+  public final static sumOfIntsTailRec(II)I
+   L0
+    LINENUMBER 10 L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPNE L1
+   L2
+    LINENUMBER 11 L2
+    ILOAD 1
+    ILOAD 0
+    IADD
+   L3
+    GOTO L4
+   L1
+    LINENUMBER 13 L1
+    ILOAD 0
+    ICONST_1
+    ISUB
+    ILOAD 0
+    ILOAD 1
+    IADD
+    ISTORE 1
+    ISTORE 0
+    GOTO L0
+   L5
+    LINENUMBER 10 L5
+   L4
+    IRETURN
+   L6
+    LOCALVARIABLE limit I L0 L6 0
+    LOCALVARIABLE runningTotal I L0 L6 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  @Lkotlin/Metadata;(mv={1, 1, 13}, bv={1, 0, 3}, k=2, d1={"\u0000\n\n\u0000\n\u0002\u0010\u0008\n\u0002\u0008\u0004\u001a\u0016\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001\u001a\u0019\u0010\u0004\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001H\u0086\u0010\u00a8\u0006\u0005"}, d2={"sumOfInts", "", "limit", "runningTotal", "sumOfIntsTailRec", "kt-bytecode"})
+  // compiled from: tailrec.kt
+}
+
+
+// ================META-INF/kt-bytecode.kotlin_module =================
