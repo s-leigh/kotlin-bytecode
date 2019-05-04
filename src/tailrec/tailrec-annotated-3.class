@@ -1,0 +1,34 @@
+// identical to sumOfIntsTailRec
+public final static sumOfIntsTailRecWithDefaultParam(II)I
+  L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPNE L1
+    ILOAD 1
+    ILOAD 0
+    IADD
+    IRETURN
+  L1
+    ILOAD 0
+    ICONST_1
+    ISUB
+    ILOAD 0
+    ILOAD 1
+    IADD
+    ISTORE 1
+    ISTORE 0
+    GOTO L0
+
+public static synthetic sumOfIntsTailRecWithDefaultParam$default(IIILjava/lang/Object;)I
+    ILOAD 2   // variable #2 is a bitmask indicating which default arguments have been specified values
+    ICONST_2
+    IAND      // bitwise AND with bitmask: result 0 means arg was passed in
+    IFEQ L0   // if result of AND is 0, go to L0
+  L1
+    ICONST_0
+    ISTORE 1   // variable #1 is now 0
+  L0
+    ILOAD 0
+    ILOAD 1
+    INVOKESTATIC src/tailrec/TailrecKt.sumOfIntsTailRecWithDefaultParam (II)I
+    IRETURN
