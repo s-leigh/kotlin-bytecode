@@ -1,0 +1,37 @@
+// standard recursion
+public final static sumOfInts(I)I
+  L0
+    ILOAD 0          // push variable #0 (limit) to stack
+    ICONST_1         // push int 1 to stack
+    IF_ICMPNE L1     // if limit != 1 go to label L1
+    ILOAD 0          // push variable #0 (limit) to stack
+    IRETURN          // return limit (which will be 1 at this point)
+  L1
+    ILOAD 0
+    ILOAD 0          // push variable #0 (limit) to stack twice
+    ICONST_1
+    ISUB             // limit - 1
+    INVOKESTATIC src/tailrec/TailrecKt.sumOfInts (I)I  // recursion!
+    IADD             // add the result of the recursive call to the limit (this is why it was pushed twice)
+    IRETURN
+
+// with tail-call optimisation
+public final static sumOfIntsTailRec(II)I
+  L0
+    ILOAD 0
+    ICONST_1
+    IF_ICMPNE L1     // as above: if limit != 1 go to label L1
+    ILOAD 1          // push variable #1 (runningTotal) to stack
+    ILOAD 0          // push variable #0 (limit) to stack
+    IADD
+    IRETURN          // return runningTotal + limit
+  L1
+    ILOAD 0
+    ICONST_1
+    ISUB             // limit - 1
+    ILOAD 0
+    ILOAD 1
+    IADD             // limit + runningTotal
+    ISTORE 1         // variable #1 is now limit + runningTotal
+    ISTORE 0         // variable #0 is now limit - 1
+    GOTO L0          // recursion! Go to label L0. Unlike above, this is how we repeat the function call
