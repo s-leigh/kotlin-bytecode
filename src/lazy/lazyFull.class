@@ -1,0 +1,168 @@
+// ================Tmp_kt_lazyKt.class =================
+// class version 50.0 (50)
+// access flags 0x31
+public final class Tmp_kt_lazyKt {
+
+
+  // access flags 0x1018
+  final static synthetic [Lkotlin/reflect/KProperty; $$delegatedProperties
+
+  // access flags 0x8
+  static <clinit>()V
+    ICONST_1
+    ANEWARRAY kotlin/reflect/KProperty
+    DUP
+    ICONST_0
+    NEW kotlin/jvm/internal/PropertyReference0Impl
+    DUP
+    LDC LTmp_kt_lazyKt;.class
+    LDC "orwell-common-library"
+    INVOKESTATIC kotlin/jvm/internal/Reflection.getOrCreateKotlinPackage (Ljava/lang/Class;Ljava/lang/String;)Lkotlin/reflect/KDeclarationContainer;
+    LDC "lazyString"
+    LDC "getLazyString()Ljava/lang/String;"
+    INVOKESPECIAL kotlin/jvm/internal/PropertyReference0Impl.<init> (Lkotlin/reflect/KDeclarationContainer;Ljava/lang/String;Ljava/lang/String;)V
+    INVOKESTATIC kotlin/jvm/internal/Reflection.property0 (Lkotlin/jvm/internal/PropertyReference0;)Lkotlin/reflect/KProperty0;
+    CHECKCAST kotlin/reflect/KProperty
+    AASTORE
+    PUTSTATIC Tmp_kt_lazyKt.$$delegatedProperties : [Lkotlin/reflect/KProperty;
+   L0
+    LINENUMBER 1 L0
+    LDC "hi there"
+    PUTSTATIC Tmp_kt_lazyKt.normalString : Ljava/lang/String;
+   L1
+    LINENUMBER 3 L1
+    GETSTATIC Tmp_kt_lazyKt$lazyString$2.INSTANCE : LTmp_kt_lazyKt$lazyString$2;
+    CHECKCAST kotlin/jvm/functions/Function0
+    INVOKESTATIC kotlin/LazyKt.lazy (Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    PUTSTATIC Tmp_kt_lazyKt.lazyString$delegate : Lkotlin/Lazy;
+    RETURN
+    MAXSTACK = 8
+    MAXLOCALS = 0
+
+  // access flags 0x1A
+  private final static Ljava/lang/String; normalString = "hi there"
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x19
+  public final static getNormalString()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    LINENUMBER 1 L0
+    GETSTATIC Tmp_kt_lazyKt.normalString : Ljava/lang/String;
+    ARETURN
+   L1
+    MAXSTACK = 1
+    MAXLOCALS = 0
+
+  // access flags 0x1A
+  private final static Lkotlin/Lazy; lazyString$delegate
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+
+  // access flags 0x19
+  public final static getLazyString()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    GETSTATIC Tmp_kt_lazyKt.lazyString$delegate : Lkotlin/Lazy;
+    ASTORE 0
+    ACONST_NULL
+    ASTORE 1
+    GETSTATIC Tmp_kt_lazyKt.$$delegatedProperties : [Lkotlin/reflect/KProperty;
+    ICONST_0
+    AALOAD
+    ASTORE 2
+   L1
+    ALOAD 0
+    INVOKEINTERFACE kotlin/Lazy.getValue ()Ljava/lang/Object;
+   L2
+    CHECKCAST java/lang/String
+    ARETURN
+   L3
+    MAXSTACK = 2
+    MAXLOCALS = 3
+
+  @Lkotlin/Metadata;(mv={1, 1, 15}, bv={1, 0, 3}, k=2, 
+d1={"\u0000\n\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0007\"\u001b\u0010\u0000\u001a\u00020\u00018FX\u0086\u0084\u0002\u00a2\u0006\u000c\n\u0004\u0008\u0004\u0010\u0005\u001a\u0004\u0008\u0002\u0010\u0003\"\u0014\u0010\u0006\u001a\u00020\u0001X\u0086D\u00a2\u0006\u0008\n\u0000\u001a\u0004\u0008\u0007\u0010\u0003\u00a8\u0006\u0008"}, 
+d2={"lazyString", "", "getLazyString", "()Ljava/lang/String;", "lazyString$delegate", "Lkotlin/Lazy;", "normalString", "getNormalString", "orwell-common-library"})
+  // access flags 0x18
+  final static INNERCLASS Tmp_kt_lazyKt$lazyString$2 null null
+  // compiled from: tmp-kt-lazy.kt
+  // debug info: SMAP
+tmp-kt-lazy.kt
+Kotlin
+*S Kotlin
+*F
++ 1 tmp-kt-lazy.kt
+Tmp_kt_lazyKt
+*L
+1#1,5:1
+*E
+
+}
+
+
+// ================Tmp_kt_lazyKt$lazyString$2.class =================
+// class version 50.0 (50)
+// access flags 0x30
+// signature Lkotlin/jvm/internal/Lambda;Lkotlin/jvm/functions/Function0<Ljava/lang/String;>;
+// declaration: Tmp_kt_lazyKt$lazyString$2 extends kotlin.jvm.internal.Lambda implements kotlin.jvm.functions.Function0<java.lang.String>
+final class Tmp_kt_lazyKt$lazyString$2 extends kotlin/jvm/internal/Lambda  implements kotlin/jvm/functions/Function0  {
+
+
+  // access flags 0x1041
+  public synthetic bridge invoke()Ljava/lang/Object;
+    ALOAD 0
+    INVOKEVIRTUAL Tmp_kt_lazyKt$lazyString$2.invoke ()Ljava/lang/String;
+    ARETURN
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x11
+  public final invoke()Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+   L0
+    LINENUMBER 4 L0
+    LDC "zzzzzzz"
+   L1
+    ARETURN
+   L2
+    LOCALVARIABLE this LTmp_kt_lazyKt$lazyString$2; L0 L2 0
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x0
+  <init>()V
+    ALOAD 0
+    ICONST_0
+    INVOKESPECIAL kotlin/jvm/internal/Lambda.<init> (I)V
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x19
+  public final static LTmp_kt_lazyKt$lazyString$2; INSTANCE
+
+  // access flags 0x8
+  static <clinit>()V
+    NEW Tmp_kt_lazyKt$lazyString$2
+    DUP
+    INVOKESPECIAL Tmp_kt_lazyKt$lazyString$2.<init> ()V
+    PUTSTATIC Tmp_kt_lazyKt$lazyString$2.INSTANCE : LTmp_kt_lazyKt$lazyString$2;
+    RETURN
+    MAXSTACK = 2
+    MAXLOCALS = 0
+
+  @Lkotlin/Metadata;(mv={1, 1, 15}, bv={1, 0, 3}, k=3, d1={"\u0000\u0008\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n\u00a2\u0006\u0002\u0008\u0002"}, d2={"<anonymous>", "", "invoke"})
+  OUTERCLASS Tmp_kt_lazyKt null
+  // access flags 0x18
+  final static INNERCLASS Tmp_kt_lazyKt$lazyString$2 null null
+  // compiled from: tmp-kt-lazy.kt
+}
+
+
+// ================META-INF/orwell-common-library.kotlin_module =================
+
+
+
+Tmp_kt_lazyKt
+
+
