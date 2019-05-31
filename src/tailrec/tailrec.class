@@ -8,17 +8,17 @@ public final class src/tailrec/TailrecKt {
   public final static sumOfInts(I)I
    L0
     LINENUMBER 4 L0
-    ILOAD 0
-    ICONST_1
-    IF_ICMPNE L1
-    ILOAD 0
+    ILOAD 0       // push local var at index 0 (limit)
+    ICONST_1      // push int 1
+    IF_ICMPNE L1  // if limit !== 1 go to L1 -- N.B. turns == into !== with a goto!
+    ILOAD 0       // push local var at index 0 (limit)
     IRETURN
    L1
     LINENUMBER 5 L1
-    ILOAD 0
-    ILOAD 0
-    ICONST_1
-    ISUB
+    ILOAD 0       // push var 0
+    ILOAD 0       // push var 0
+    ICONST_1      // push 1
+    ISUB          // 1 - limit
     INVOKESTATIC src/tailrec/TailrecKt.sumOfInts (I)I
     IADD
     IRETURN
@@ -31,7 +31,7 @@ public final class src/tailrec/TailrecKt {
   public final static sumOfIntsTailRec(II)I
    L0
     LINENUMBER 9 L0
-    ILOAD 0
+    ILOAD 0       
     ICONST_1
     IF_ICMPNE L1
     ILOAD 1

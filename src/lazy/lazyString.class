@@ -10,12 +10,12 @@ public final class Tmp_kt_lazyKt {
   // access flags 0x8
   static <clinit>()V
     ICONST_1
-    ANEWARRAY kotlin/reflect/KProperty
+    ANEWARRAY kotlin/reflect/KProperty // length of 1 (from stack) - pushes array ref
     DUP
     ICONST_0
     NEW kotlin/jvm/internal/PropertyReference0Impl
     DUP
-    LDC LTmp_kt_lazyKt;.class
+    LDC LTmp_kt_lazyKt;.class // load constant this class
     LDC "orwell-common-library"
     INVOKESTATIC kotlin/jvm/internal/Reflection.getOrCreateKotlinPackage (Ljava/lang/Class;Ljava/lang/String;)Lkotlin/reflect/KDeclarationContainer;
     LDC "lazyString"
@@ -23,7 +23,7 @@ public final class Tmp_kt_lazyKt {
     INVOKESPECIAL kotlin/jvm/internal/PropertyReference0Impl.<init> (Lkotlin/reflect/KDeclarationContainer;Ljava/lang/String;Ljava/lang/String;)V
     INVOKESTATIC kotlin/jvm/internal/Reflection.property0 (Lkotlin/jvm/internal/PropertyReference0;)Lkotlin/reflect/KProperty0;
     CHECKCAST kotlin/reflect/KProperty
-    AASTORE
+    AASTORE // store reference into an array
     PUTSTATIC Tmp_kt_lazyKt.$$delegatedProperties : [Lkotlin/reflect/KProperty;
    L0
     LINENUMBER 1 L0
