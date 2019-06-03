@@ -1,0 +1,108 @@
+public final class WhenKt {
+
+  public final static informalGreetingIf(Ljava/lang/String;)Ljava/lang/String;
+   L0
+   // null safety checking (param is non-nullable)
+    ALOAD 0
+    LDC "greeting"  // only required for throwing a helpful error if the param is null
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
+   
+   L1
+   // first "if" case
+    ALOAD 0  // push parameter
+    LDC "hello"  // push constant string "hello"
+    // areEqual takes the two things at the top of the stack, and pushes 0 or 1 (false or true)
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.areEqual (Ljava/lang/Object;Ljava/lang/Object;)Z
+    IFEQ L2  // if value is 0 (i.e. if false) go to L2
+    LDC "hi"  // push constant string "hi"
+    GOTO L3  // go to L3 (L-labels are out of order)
+
+   L2
+   // "else if" cases
+    ALOAD 0  // push parameter again
+    LDC "hey bro"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.areEqual (Ljava/lang/Object;Ljava/lang/Object;)Z
+    IFNE L4  // if value is not 0 (i.e. if true) go to L4
+    ALOAD 0  // push parameter again
+    LDC "what's up"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.areEqual (Ljava/lang/Object;Ljava/lang/Object;)Z
+    IFEQ L5  // if 0 (false) go to L5
+
+   L4
+    NEW java/lang/Error
+    DUP  // duplicate the pointer to the Error
+    LDC "Greeting already too casual"
+    // `init` constructs the Error but constructors return void (hence the `V`),
+    // so it's popped but not pushed back on
+    INVOKESPECIAL java/lang/Error.<init> (Ljava/lang/String;)V
+    CHECKCAST java/lang/Throwable
+    ATHROW  // throw the reference the duplicate pointer points to
+  
+   L5
+   // default "else" case
+    LDC "yo"
+  
+   L3
+    ARETURN  // return whatever's top of the stack
+
+
+  public final static informalGreetingWhen(Ljava/lang/String;)Ljava/lang/String;
+   L0
+   // null safety checking as above
+    ALOAD 0
+    LDC "greeting"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
+   
+   L1
+    ALOAD 0  // push param
+    ASTORE 1  // store param as variable `1`
+    ALOAD 1  // push param
+    INVOKEVIRTUAL java/lang/String.hashCode ()I  // hash the param!
+
+   L2
+    LOOKUPSWITCH      // go to the label matching the param hash
+      -221064757: L3  // -> "what's up" check
+      99162322: L4    // -> "hello" check
+      815443739: L5   // -> "hey bro" check
+      default: L6     // -> "yo"
+
+   L5
+    ALOAD 1
+    LDC "hey bro"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6  // if false -> "yo"
+    GOTO L7  // -> Error
+
+   L3
+    ALOAD 1
+    LDC "what's up"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6  // if false -> "yo"
+    GOTO L7  // -> Error
+
+   L4
+    ALOAD 1
+    LDC "hello"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6  // if false -> "yo"
+  // fallthrough!
+   L8
+    LDC "hi"
+    GOTO L9  // -> return "hi"
+
+   L7
+    LINENUMBER 10 L7
+    NEW java/lang/Error
+    DUP
+    LDC "Greeting already too casual"
+    INVOKESPECIAL java/lang/Error.<init> (Ljava/lang/String;)V
+    CHECKCAST java/lang/Throwable
+    ATHROW
+
+   L6
+    LDC "yo"
+
+   L9
+    ARETURN
+
+}
