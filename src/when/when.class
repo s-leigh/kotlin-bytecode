@@ -118,7 +118,71 @@ public final class WhenKt {
     MAXSTACK = 3
     MAXLOCALS = 2
 
-  @Lkotlin/Metadata;(mv={1, 1, 15}, bv={1, 0, 3}, k=2, d1={"\u0000\n\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0003\u001a\u000e\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001\u001a\u000e\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001\u00a8\u0006\u0004"}, d2={"informalGreetingIf", "", "greeting", "informalGreetingWhen", "kt-bytecode"})
+  // access flags 0x19
+  public final static informalGreetingHashCollision(Ljava/lang/String;)Ljava/lang/String;
+  @Lorg/jetbrains/annotations/NotNull;() // invisible
+    // annotable parameter count: 1 (visible)
+    // annotable parameter count: 1 (invisible)
+    @Lorg/jetbrains/annotations/NotNull;() // invisible, parameter 0
+   L0
+    ALOAD 0
+    LDC "greeting"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
+   L1
+    LINENUMBER 14 L1
+    ALOAD 0
+    ASTORE 1
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.hashCode ()I
+   L2
+    LOOKUPSWITCH
+      -221064757: L3
+      2112: L4
+      default: L5
+   L4
+    ALOAD 1
+    LDC "Aa"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6
+    GOTO L7
+   L6
+    ALOAD 1
+    LDC "BB"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L5
+    GOTO L8
+   L3
+    ALOAD 1
+    LDC "what's up"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L5
+    GOTO L8
+   L7
+    LINENUMBER 15 L7
+    LDC "hi"
+    GOTO L9
+   L8
+    LINENUMBER 16 L8
+    NEW java/lang/Error
+    DUP
+    LDC "Greeting already too casual"
+    INVOKESPECIAL java/lang/Error.<init> (Ljava/lang/String;)V
+    CHECKCAST java/lang/Throwable
+    ATHROW
+   L5
+    LINENUMBER 17 L5
+    LDC "yo"
+   L10
+    LINENUMBER 14 L10
+   L9
+    LINENUMBER 18 L9
+    ARETURN
+   L11
+    LOCALVARIABLE greeting Ljava/lang/String; L0 L11 0
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  @Lkotlin/Metadata;(mv={1, 1, 15}, bv={1, 0, 3}, k=2, d1={"\u0000\n\n\u0000\n\u0002\u0010\u000e\n\u0002\u0008\u0004\u001a\u000e\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001\u001a\u000e\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001\u001a\u000e\u0010\u0004\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001\u00a8\u0006\u0005"}, d2={"informalGreetingHashCollision", "", "greeting", "informalGreetingIf", "informalGreetingWhen", "kt-bytecode"})
   // compiled from: when.kt
 }
 

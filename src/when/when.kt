@@ -10,3 +10,9 @@ fun informalGreetingWhen(greeting: String): String = when(greeting) {
     "hey bro", "what's up" -> throw Error("Greeting already too casual")
     else -> "yo"
 }
+
+fun informalGreetingHashCollision(greeting: String): String = when (greeting) {
+    "Aa" -> "hi"
+    "BB", "what's up" -> throw Error("Greeting already too casual")
+    else -> "yo"
+}

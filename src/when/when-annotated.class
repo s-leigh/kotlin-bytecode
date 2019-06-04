@@ -9,13 +9,13 @@ public final class WhenKt {
    
    L1
    // first "if" case
-    ALOAD 0  // push parameter
+    ALOAD 0      // push parameter
     LDC "hello"  // push constant string "hello"
     // areEqual takes the two things at the top of the stack, and pushes 0 or 1 (false or true)
     INVOKESTATIC kotlin/jvm/internal/Intrinsics.areEqual (Ljava/lang/Object;Ljava/lang/Object;)Z
-    IFEQ L2  // if value is 0 (i.e. if false) go to L2
+    IFEQ L2   // if value is 0 (i.e. if false) -> L2 ("else if" cases)
     LDC "hi"  // push constant string "hi"
-    GOTO L3  // go to L3 (L-labels are out of order)
+    GOTO L3   // -> return (L-labels are out of order)
 
    L2
    // "else if" cases
@@ -102,6 +102,55 @@ public final class WhenKt {
    L6
     LDC "yo"
 
+   L9
+    ARETURN
+
+  public final static informalGreetingHashCollision(Ljava/lang/String;)Ljava/lang/String;
+   L0
+    ALOAD 0
+    LDC "greeting"
+    INVOKESTATIC kotlin/jvm/internal/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
+
+   L1
+    ALOAD 0
+    ASTORE 1
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/String.hashCode ()I
+   L2
+    LOOKUPSWITCH
+      -221064757: L3  // hash of "what's up"
+      2112: L4        // hash collision! this is the hash of both "Aa" and "BB"
+      default: L5
+   L4
+    ALOAD 1
+    LDC "Aa"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L6  // if not "Aa" -> L6 (check for "BB")
+    GOTO L7  // if "Aa" -> "hi'"
+   L6
+    ALOAD 1
+    LDC "BB"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L5  // if not "BB" -> "yo"
+    GOTO L8  // -> throw Error
+   L3
+    ALOAD 1
+    LDC "what's up"
+    INVOKEVIRTUAL java/lang/String.equals (Ljava/lang/Object;)Z
+    IFEQ L5
+    GOTO L8
+   L7
+    LDC "hi"
+    GOTO L9
+   L8
+    NEW java/lang/Error
+    DUP
+    LDC "Greeting already too casual"
+    INVOKESPECIAL java/lang/Error.<init> (Ljava/lang/String;)V
+    CHECKCAST java/lang/Throwable
+    ATHROW
+   L5
+    LDC "yo"
    L9
     ARETURN
 
